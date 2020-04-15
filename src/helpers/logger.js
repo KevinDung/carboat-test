@@ -1,7 +1,7 @@
 class Logger {
   constructor(reference) {
     this.logger = {
-      reference: reference,
+      reference,
       scam: false,
       rules: [],
     };

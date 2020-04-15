@@ -1,46 +1,42 @@
 const { QuotationService, BlacklistService } = require('../services');
 
-const nameLength = name => {
-  return name.length > 2;
-}
+const hasCharactersRequired = (name, required = 2) => name.length > required;
 
-const alphaRate = email => {
+const hasAlphaRate = (email) => {
   const re = /[a-zA-Z0-9]/g;
   const alphaLength = (email.match(re) || []).length;
   const coreEmailLength = email.split('@')[0].length;
   const rate = alphaLength / coreEmailLength;
-  console.log(rate);
+
   return rate > 0.7;
 };
 
-const numberRate = email => {
+const hasNumberRate = (email) => {
   const re = /[\d]/g;
   const emailNumberLength = (email.match(re) || []).length;
   const coreEmailLength = email.split('@')[0].length;
   const rate = emailNumberLength / coreEmailLength;
 
   return rate < 0.3;
-}
+};
 
-const quotationRate = price => {
+const hasQuotationRate = (price) => {
   const quotation = QuotationService();
-  const minRange = quotation - (quotation * 0.2);
-  const maxRange = quotation + (quotation * 0.2);
+  const minRange = quotation - quotation * 0.2;
+  const maxRange = quotation + quotation * 0.2;
 
   if (price >= minRange && price <= maxRange) {
     return true;
   }
   return false;
-}
+};
 
-const isBlacklisted = registerNumber => {
-  return BlacklistService(registerNumber);
-}
+const isNotBlacklisted = (registerNumber) => !BlacklistService(registerNumber);
 
 module.exports = {
-  nameLength,
-  alphaRate,
-  numberRate,
-  quotationRate,
-  isBlacklisted
+  hasCharactersRequired,
+  hasAlphaRate,
+  hasNumberRate,
+  hasQuotationRate,
+  isNotBlacklisted,
 };
