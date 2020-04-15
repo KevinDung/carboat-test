@@ -1,0 +1,28 @@
+{
+  "name": "carboat-test",
+  "version": "1.0.0",
+  "description": "test technique La Centrale",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "pretty-quick && eslint --fix src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinDung/carboat-test.git"
+  },
+  "author": "Kevin Dung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinDung/carboat-test/issues"
+  },
+  "homepage": "https://github.com/KevinDung/carboat-test#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1"
+  }
+}
