@@ -1,10 +1,17 @@
 class Logger {
-  constructor() {
+  constructor(reference) {
     this.logger = {
-      reference: '',
+      reference: reference,
       scam: false,
       rules: [],
     };
+  }
+
+  addScamRule(rule) {
+    if (!this.logger.scam) {
+      this.logger.scam = true;
+    }
+    this.logger.rules.push(rule);
   }
 }
 
