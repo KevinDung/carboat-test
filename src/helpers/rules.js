@@ -8,7 +8,7 @@ const hasAlphaRate = (email) => {
   const coreEmailLength = email.split('@')[0].length;
   const rate = alphaLength / coreEmailLength;
 
-  return rate > 0.7;
+  return rate > process.env.ALPHA_RATE;
 };
 
 const hasNumberRate = (email) => {
@@ -17,7 +17,7 @@ const hasNumberRate = (email) => {
   const coreEmailLength = email.split('@')[0].length;
   const rate = emailNumberLength / coreEmailLength;
 
-  return rate < 0.3;
+  return rate < process.env.NUMBER_RATE;
 };
 
 const hasQuotationRate = (price) => {
